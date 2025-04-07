@@ -274,7 +274,7 @@ bool Painter::isInShadow(const Vec3d& view_coord) const
 {
     auto shadow_buffer_coord_with_depth =
         (transform_from_view_to_shadow_buffer_ * view_coord.homogeneous()).hnormalized();
-    const double BIAS = 0.01;
+    const double BIAS = 3.5e-3;
     int width         = image_.getWidth();
     int height        = image_.getHeight();
     if (shadow_buffer_coord_with_depth[0] < 0 || shadow_buffer_coord_with_depth[0] > width ||

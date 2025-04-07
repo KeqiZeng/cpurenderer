@@ -16,7 +16,7 @@ class Args
     static constexpr int IMG_WIDTH           = 800;
     static constexpr int IMG_HEIGHT          = 800;
     static constexpr double LIGHT_INTENSITY  = 1.6;
-    static constexpr double KA               = 0.1;
+    static constexpr double KA               = 0.15;
     static constexpr double KD               = 0.5;
     static constexpr double KS               = 0.5;
     static constexpr char const* OUTPUT_FILE = "output.png";

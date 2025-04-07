@@ -85,6 +85,12 @@ void Camera::perspectiveProjection()
 
 void Camera::viewport()
 {
+    // viewport_       = Mat4d::Identity();
+    // viewport_(0, 0) = width_ / 2.0;
+    // viewport_(1, 1) = height_ / 2.0;
+    // viewport_(0, 3) = width_ / 2.0;
+    // viewport_(1, 3) = height_ / 2.0;
+
     int x           = width_ / 10;
     int y           = height_ / 10;
     int w           = width_ * 4 / 5;
