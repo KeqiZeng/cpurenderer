@@ -188,12 +188,21 @@ bool Painter::viewFrustumCulling(const std::shared_ptr<Model>& model)
 
 bool Painter::backFaceCulling(const std::shared_ptr<Model>& model, int face_idx)
 {
-    // assume vertex order is counter-clockwise
     const auto& face = model->getFace(face_idx);
     Vec3d a          = model->getVertex(face.v_idx_[0]);
     Vec3d b          = model->getVertex(face.v_idx_[1]);
     Vec3d c          = model->getVertex(face.v_idx_[2]);
-    Vec3d normal     = (b - a).cross(c - a);
+    Vec3d norm_bary =
+        (model->getNormal(face.n_idx_[0]) + model->getNormal(face.n_idx_[1]) + model->getNormal(face.n_idx_[2])) / 3.0;
+
+    // assume vertex order is counter-clockwise
+    Vec3d normal = (b - a).cross(c - a);
+
+    if (normal.dot(norm_bary) < 0) {
+        // vertex order is clockwise
+        normal = -normal;
+    }
+
     return normal.dot(camera_.getPosition() - (a + b + c) / 3) >= 0;
 }
 
