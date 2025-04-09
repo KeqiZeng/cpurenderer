@@ -18,27 +18,27 @@ All of them are located in `external` already.
 
 # Gallery
 
-`cpurenderer assets/african_head --camera_position 0.5 0.6 1.6`
-[<p align="center"><img src="images/african_head.png" width=400></p>](images/african_head.png)
+`cpurenderer assets/african_head --camera_position 0.5 0.6 1.6 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/african_head.png" width=600></p>](images/african_head.png)
 
-`cpurenderer assets/boggie --camera_position 0.5 0.8 1.6`
-[<p align="center"><img src="images/boggie.png" width=400></p>](images/boggie.png)
+`cpurenderer assets/boggie --camera_position 0.5 0.8 1.6 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/boggie.png" width=600></p>](images/boggie.png)
 
-`cpurenderer assets/boggie_on_floor --camera_position 0.8 1.2 2.4`
-[<p align="center"><img src="images/boggie_on_floor.png" width=400></p>](images/boggie_on_floor.png)
+`cpurenderer assets/boggie_on_floor --camera_position 0.8 1.2 2.4 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/boggie_on_floor.png" width=600></p>](images/boggie_on_floor.png)
 
-`cpurenderer assets/diablo3_pose --camera_position 0.5 0.6 1.6`
-[<p align="center"><img src="images/diablo3_pose.png" width=400></p>](images/diablo3_pose.png)
+`cpurenderer assets/diablo3_pose --camera_position 0.5 0.6 1.6 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/diablo3_pose.png" width=600></p>](images/diablo3_pose.png)
 
-`cpurenderer assets/diablo3_pose_on_floor --camera_position 0.8 1.2 2.4`
-[<p align="center"><img src="images/diablo3_pose_on_floor.png" width=400></p>](images/diablo3_pose_on_floor.png)
+`cpurenderer assets/diablo3_pose_on_floor --camera_position 0.8 1.2 2.4 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/diablo3_pose_on_floor.png" width=600></p>](images/diablo3_pose_on_floor.png)
 
-`cpurenderer assets/floor --camera_position 0.8 1.2 2.4`
-[<p align="center"><img src="images/floor.png" width=400></p>](images/floor.png)
+`cpurenderer assets/floor --camera_position 0.8 1.2 2.4 --light_position 1.5 2.5 2.5`
+[<p align="center"><img src="images/floor.png" width=600></p>](images/floor.png)
 
 # Key Features
 
-✅ Complete rendering pipeline
+✅ Complete graphics pipeline
 
 ✅ View frustum culling for model
 
@@ -52,13 +52,19 @@ All of them are located in `external` already.
 
 ✅ Shadow map
 
+✅ Theoretically programmable vertex and fragment shader
+
 # Limitations
 
 ❌ Assume the OBJ models are triangulated
 
-❌ Assume vertex order for back face culling
-
 ❌ No triangle clipping in clip space. If any vertex of an triangle is outside the clip space, the triangle will be discard. (to avoid annoying wrap-around issue). That's why the floor looks incomplete in some pictures.
+
+# References
+
+[`tinyrenderer`](https://github.com/ssloy/tinyrenderer)
+
+[`GAMES 101`](https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html)
 
 # License
 
