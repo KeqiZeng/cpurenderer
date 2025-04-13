@@ -6,7 +6,6 @@
 #include <array>
 #include <cassert>
 #include <cmath>
-#include <iostream>
 #include <limits>
 #include <memory>
 #include <utility>

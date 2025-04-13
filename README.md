@@ -21,7 +21,7 @@ All of them are located in `external` already.
 `cpurenderer assets/african_head --camera_position 0.5 0.6 1.6 --light_position 1.5 2.5 2.5`
 [<p align="center"><img src="images/african_head.png" width=600></p>](images/african_head.png)
 
-`cpurenderer assets/boggie --camera_position 0.5 0.8 1.6 --light_position 1.5 2.5 2.5`
+`cpurenderer assets/boggie --camera_position 0.4 0.8 1.6 --light_position 1.5 2.5 2.5`
 [<p align="center"><img src="images/boggie.png" width=600></p>](images/boggie.png)
 
 `cpurenderer assets/boggie_on_floor --camera_position 0.8 1.2 2.4 --light_position 1.5 2.5 2.5`

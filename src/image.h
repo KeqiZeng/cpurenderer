@@ -2,7 +2,6 @@
 
 #include <Eigen/Dense>
 #include <cstdint>
-#include <memory>
 #include <string_view>
 
 class Color
@@ -57,9 +56,9 @@ class Image
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
 
-    [[nodiscard]] virtual Color* getColor(int x, int y) const       = 0;
-    [[nodiscard]] virtual Color* getColor(double x, double y) const = 0;
-    void virtual setColor(int x, int y, Color* color)               = 0;
+    [[nodiscard]] virtual Color* getColor(int x, int y) const = 0;
+    [[nodiscard]] virtual Color* getColor(double x, double y) const;
+    void virtual setColor(int x, int y, Color* color) = 0;
     void saveToFile(std::string_view filename, int channels);
 
   protected:
@@ -74,6 +73,9 @@ class Image
 class GrayScaleImage : public Image
 {
   public:
+    // getColor is defined in GrayScaleImage, every overload of getColor in Image is shadowed.
+    // It is necessary to import Image::getColor, so that the getColor(double, double) of Image can be called.
+    using Image::getColor;
     static constexpr int CHANNELS{1};
 
     GrayScaleImage(std::string_view filename);
@@ -85,7 +87,6 @@ class GrayScaleImage : public Image
     ~GrayScaleImage() override                       = default;
 
     [[nodiscard]] Color* getColor(int x, int y) const override;
-    [[nodiscard]] Color* getColor(double x, double y) const override;
     void setColor(int x, int y, Color* color) override;
     void saveToFile(std::string_view filename);
 };
@@ -93,6 +94,7 @@ class GrayScaleImage : public Image
 class RGBImage : public Image
 {
   public:
+    using Image::getColor;
     static constexpr int CHANNELS{3};
 
     RGBImage(std::string_view filename);
@@ -104,7 +106,6 @@ class RGBImage : public Image
     ~RGBImage() override                 = default;
 
     [[nodiscard]] Color* getColor(int x, int y) const override;
-    [[nodiscard]] Color* getColor(double x, double y) const override;
     void setColor(int x, int y, Color* color) override;
     void saveToFile(std::string_view filename);
 };
